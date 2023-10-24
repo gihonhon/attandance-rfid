@@ -1,36 +1,59 @@
+import SignInForm from "@/components/Form/SignInForm";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
 const Home = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-screen w-full">
-        <Image src="/vercel.svg" alt="logo" width={140} height={140} />
-
-        <h1 className="my-6">Lorem Ipsum</h1>
-
-        <div className="border w-[70%] rounded-md">
-          <h1 className="px-4 w-full bg-slate-400 py-2">Login</h1>
-          <div className="flex flex-col items-center">
-            <form className="my-4">
-              <div className="form-control mb-4">
-                <label className="mb-2">Email</label>
-                <input
-                  type="email"
-                  placeholder="Input your name"
-                  className="input input-bordered w-full"
-                />
-              </div>
-              <div className="from-control mb-2">
-                <label className="mb-2">Password</label>
-                <input
-                  type="password"
-                  placeholder="Input your password"
-                  className="input input-bordered w-full"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+      <section className="flex flex-col bg-[#f4ebf7] items-center justify-center h-screen w-full">
+        <Image
+          src="/vercel.svg"
+          alt="logo"
+          width={140}
+          height={140}
+          className="my-6"
+        />
+        <Tabs defaultValue="login" className="w-[400px]">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="login">Login</TabsTrigger>
+            <TabsTrigger value="password">Register</TabsTrigger>
+          </TabsList>
+          <TabsContent value="login">
+            <SignInForm />
+          </TabsContent>
+          <TabsContent value="password">
+            <Card>
+              <CardHeader>
+                <CardTitle>Register</CardTitle>
+              </CardHeader>
+              {/** Register */}
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="current">Current password</Label>
+                  <Input id="current" type="password" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="new">New password</Label>
+                  <Input id="new" type="password" />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button>Save password</Button>
+              </CardFooter>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </section>
     </>
   );

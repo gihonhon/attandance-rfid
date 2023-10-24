@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html data-theme="light" lang="en">
+    <html lang="en">
       <body className={inter.className}>
         <main className="max-w-10xl">{children}</main>
       </body>
