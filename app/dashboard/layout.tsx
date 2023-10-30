@@ -53,21 +53,21 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </div>
           <li className=" text-gray-500 mb-4">
             MASTER PEGAWAI
-            <Link className="text-black" href={`/dashboard/item1`}>
+            <Link className="text-black" href={`/pegawai_table`}>
               <Users />
               Data Pegawai
             </Link>
           </li>
           <li className=" text-gray-500 mb-4">
             REKAP ABSENSI
-            <Link className="text-black" href={"/dashboard/materi"}>
+            <Link className="text-black" href={"/absensi_table"}>
               <CalendarRange />
               Data Absensi
             </Link>
           </li>
           <li className=" text-gray-500 mb-4">
             RFID
-            <Link className="text-black" href={"/dashboard/materi"}>
+            <Link className="text-black" href={"/rfid_presensi"}>
               <ScanBarcode />
               Presensi
             </Link>
