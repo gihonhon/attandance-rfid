@@ -10,10 +10,10 @@ const Home = () => {
     <>
       <section className="flex flex-col bg-[#f4ebf7] items-center justify-center h-screen w-full">
         <Image
-          src="/vercel.svg"
+          src="/logo.svg"
           alt="logo"
-          width={140}
-          height={140}
+          width={240}
+          height={240}
           className="my-6"
         />
         <Tabs defaultValue="login" className="w-[400px]">
