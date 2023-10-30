@@ -1,9 +1,14 @@
 "use client";
-import { CalendarDays, Users } from "lucide-react";
+import { CalendarDays, Layout, Users } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { SidebarItem } from "./sidebar-item";
 
 const adminRoutes = [
+  {
+    icon: Layout,
+    label: "Dashboard",
+    href: "/dash",
+  },
   {
     icon: Users,
     label: "Pegawai",
