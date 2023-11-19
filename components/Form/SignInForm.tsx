@@ -41,7 +41,7 @@ const SignInForm = () => {
       values.email === "admin@admin.com" &&
       values.password === "admin12345678"
     ) {
-      router.push("/dash");
+      router.push("/pegawai");
     }
   };
   return (
