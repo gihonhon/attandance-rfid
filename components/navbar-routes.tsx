@@ -6,9 +6,7 @@ import { Button } from "./ui/button";
 
 const NavbarRoutes = () => {
   const pathname = usePathname();
-  //Todo Checking User Auth for render this components
-  //Todo Create User Button
-  const isAdmin = pathname?.startsWith("/"); //! Don't forget to add checking auth
+  const isAdmin = pathname?.startsWith("/");
   return (
     <div className="flex gap-x-2 ml-auto">
       {isAdmin ? (
