@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { DataTable } from "./_components/data-table";
 
 async function getData(): Promise<Pegawai[]> {
-  // Fetch data from your API here.
+  //TODO : Fetch data from your API here.
   return [
     {
       id: "728ed52f",
