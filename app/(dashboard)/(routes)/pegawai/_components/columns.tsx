@@ -20,16 +20,14 @@ import {
 import Link from "next/link";
 
 export type Pegawai = {
-  id: string;
-  namaPegawai: string;
-  rfid: string;
-  email: string;
-  jobTitle: string;
+  id: number;
+  nama_user: string;
+  rfid_id: string;
 };
 
 export const columns: ColumnDef<Pegawai>[] = [
   {
-    accessorKey: "namaPegawai",
+    accessorKey: "nama_user",
     header: ({ column }) => {
       return (
         <Button
@@ -43,16 +41,8 @@ export const columns: ColumnDef<Pegawai>[] = [
     },
   },
   {
-    accessorKey: "rfid",
+    accessorKey: "rfid_id",
     header: "Card ID",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "jobTitle",
-    header: "Jabatan",
   },
   {
     id: "actions",

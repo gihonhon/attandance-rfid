@@ -21,16 +21,16 @@ import {
 import Link from "next/link";
 
 export type Pegawai = {
-  id: string;
-  namaPegawai: string;
-  rfid: string;
-  tanggal: string;
-  jamKeluar: string;
+  id: number;
+  id_user: number;
+  nama_user: string;
+  tanggal: string | null;
+  rfid_id: string;
 };
 
 export const columns: ColumnDef<Pegawai>[] = [
   {
-    accessorKey: "rfid",
+    accessorKey: "rfid_id",
     header: ({ column }) => {
       return (
         <Button
@@ -44,7 +44,7 @@ export const columns: ColumnDef<Pegawai>[] = [
     },
   },
   {
-    accessorKey: "namaPegawai",
+    accessorKey: "nama_user",
     header: ({ column }) => {
       return (
         <Button
@@ -72,40 +72,6 @@ export const columns: ColumnDef<Pegawai>[] = [
     },
     cell: ({ row }) => {
       return <>{formatDateIntl(row.getValue("tanggal"))}</>;
-    },
-  },
-  {
-    accessorKey: "tanggal",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Jam Masuk
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      return <div>{formatDateTimeIntl(row.getValue("tanggal"))}</div>;
-    },
-  },
-  {
-    accessorKey: "jamKeluar",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Jam Keluar
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      return <div>{formatDateTimeIntl(row.getValue("jamKeluar"))}</div>;
     },
   },
 ];

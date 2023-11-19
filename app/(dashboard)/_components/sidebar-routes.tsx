@@ -5,11 +5,6 @@ import { SidebarItem } from "./sidebar-item";
 
 const adminRoutes = [
   {
-    icon: Layout,
-    label: "Dashboard",
-    href: "/dash",
-  },
-  {
     icon: Users,
     label: "Pegawai",
     href: "/pegawai",

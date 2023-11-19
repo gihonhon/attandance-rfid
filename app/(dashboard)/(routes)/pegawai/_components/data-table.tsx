@@ -48,13 +48,8 @@ import {
 } from "@/components/ui/form";
 
 const FormSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .email("Please input valid email"),
-  cardID: z.string().min(1, "Card ID is required"),
-  jabatan: z.string().min(1, "Jabatan is required"),
+  nama_user: z.string().min(1, "Name is required"),
+  rfid_id: z.string().min(1, "Card ID is required"),
 });
 
 interface DataTableProps<TData, TValue> {
@@ -69,10 +64,8 @@ export function DataTable<TData, TValue>({
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      cardID: "",
-      jabatan: "",
+      nama_user: "",
+      rfid_id: "",
     },
   });
   const router = useRouter();
@@ -105,10 +98,10 @@ export function DataTable<TData, TValue>({
         <Input
           placeholder="Search pegawai..."
           value={
-            (table.getColumn("jobTitle")?.getFilterValue() as string) ?? ""
+            (table.getColumn("nama_user")?.getFilterValue() as string) ?? ""
           }
           onChange={(event) =>
-            table.getColumn("jobTitle")?.setFilterValue(event.target.value)
+            table.getColumn("nama_user")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -132,50 +125,23 @@ export function DataTable<TData, TValue>({
                 <div className="space-y-1">
                   <FormField
                     control={form.control}
-                    name="name"
+                    name="nama_user"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel>Nama</FormLabel>
                         <FormControl>
                           <Input placeholder="John Cann" {...field} />
                         </FormControl>
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="email"
-                            placeholder="john@example.com"
-                            {...field}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="cardID"
+                    name="rfid_id"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>ID Card</FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="jabatan"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Jabatan</FormLabel>
                         <FormControl>
                           <Input {...field} />
                         </FormControl>
