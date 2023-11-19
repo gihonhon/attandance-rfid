@@ -17,15 +17,11 @@ const Home = () => {
           className="my-6"
         />
         <Tabs defaultValue="login" className="w-[400px]">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-1">
             <TabsTrigger value="login">Login</TabsTrigger>
-            <TabsTrigger value="register">Register</TabsTrigger>
           </TabsList>
           <TabsContent value="login">
             <SignInForm />
-          </TabsContent>
-          <TabsContent value="register">
-            <SignUpForm />
           </TabsContent>
         </Tabs>
       </section>

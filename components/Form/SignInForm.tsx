@@ -13,9 +13,13 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { redirect, useRouter } from "next/navigation";
 
 const FormSchema = z.object({
-  username: z.string().min(1, "Username is required"),
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Please input valid email"),
   password: z
     .string()
     .min(1, "Password is required")
@@ -23,16 +27,22 @@ const FormSchema = z.object({
 });
 
 const SignInForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
 
   const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+    if (
+      values.email === "admin@admin.com" &&
+      values.password === "admin12345678"
+    ) {
+      router.push("/dash");
+    }
   };
   return (
     <Card>
@@ -45,12 +55,12 @@ const SignInForm = () => {
             <div className="space-y-1">
               <FormField
                 control={form.control}
-                name="username"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="johny" {...field} />
+                      <Input placeholder="jhon@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -63,7 +73,11 @@ const SignInForm = () => {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your password" {...field} />
+                      <Input
+                        placeholder="Enter your password"
+                        type="password"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
